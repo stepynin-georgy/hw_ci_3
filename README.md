@@ -5,6 +5,9 @@
 1. Создать два VM: для jenkins-master и jenkins-agent.
 2. Установить Jenkins при помощи playbook.
 
+<details>
+<summary>Запуск playbook</summary>
+
 ```
 (venv_ci) root@ansible-ubuntu:/opt/hw_ci_3# ansible-playbook -i infrastructure/inventory/cicd/hosts.yml infrastructure/site.yml
 [DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the controller starting with Ansible 2.12. Current version: 3.6.15 (default, Sep 13 2024, 08:34:12) [GCC 13.2.0]. This feature
@@ -108,14 +111,32 @@ jenkins-master-01          : ok=11   changed=8    unreachable=0    failed=0    s
 /opt/venv_ci/bin/ansible-playbook:135: ResourceWarning: unclosed file <_io.BufferedRandom name=5>
   exit_code = cli.run()
 ```
+</details>
 
 3. Запустить и проверить работоспособность.
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_34.png]
+
 4. Сделать первоначальную настройку.
+
+Добавил агента:
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_35.png]
 
 ## Основная часть
 
 1. Сделать Freestyle Job, который будет запускать `molecule test` из любого вашего репозитория с ролью.
-2. Сделать Declarative Pipeline Job, который будет запускать `molecule test` из любого вашего репозитория с ролью.
+
+Добавил репозиторий с vector-role:
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_36.png]
+
+Выполняемый код:
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_37.png]
+
+<details>
+<summary>Запуск freestyle job</summary>
 
 ```
 Started by user admin
@@ -596,7 +617,13 @@ INFO     Pruning extra files from scenario ephemeral directory
 Finished: SUCCESS
 ```
 
+</details>
+
+2. Сделать Declarative Pipeline Job, который будет запускать `molecule test` из любого вашего репозитория с ролью.
 3. Перенести Declarative Pipeline в репозиторий в файл `Jenkinsfile`.
+
+<details>
+<summary>Запуск Declarative Pipeline</summary>
 
 ```
 pipeline {
@@ -1166,7 +1193,16 @@ Finished: SUCCESS
 
 ```
 
+</details>
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_38.png]
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_39.png]
+
 4. Создать Multibranch Pipeline на запуск `Jenkinsfile` из репозитория.
+
+<details>
+<summary>Запуск Multibranch Pipeline</summary>
 
 ```
 Started by user admin
@@ -1197,11 +1233,19 @@ multibranch pipeline » default completed with result SUCCESS
 Finished: SUCCESS
 ```
 
+</details>
+
 5. Создать Scripted Pipeline, наполнить его скриптом из [pipeline](./pipeline).
 6. Внести необходимые изменения, чтобы Pipeline запускал `ansible-playbook` без флагов `--check --diff`, если не установлен параметр при запуске джобы (prod_run = True). По умолчанию параметр имеет значение False и запускает прогон с флагами `--check --diff`.
+
+Добавил переменную prod_run:
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_40.png]
+
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
 
-prod_run=False
+<details>
+<summary>Запуск Scripted Pipeline с параметром prod_run=False</summary>
 
 ```
 Started by user admin
@@ -1273,7 +1317,12 @@ localhost                  : ok=5    changed=3    unreachable=0    failed=0    s
 Finished: SUCCESS
 ```
 
-prod_run=True
+</details>
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_42.png]
+
+<details>
+<summary>Запуск Scripted Pipeline с параметром prod_run=True</summary>
 
 ```
 Started by user admin
@@ -1345,7 +1394,18 @@ localhost                  : ok=4    changed=0    unreachable=0    failed=0    s
 Finished: SUCCESS
 ```
 
+</details>
+
+!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_43.png]
+
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
+
+[vector-role](https://github.com/stepynin-georgy/vector-role)
+
+[Jenkinsfile](https://github.com/stepynin-georgy/hw_ci_3/blob/main/pipeline/Jenkinsfile)
+
+[ScriptedJenkinsfile](https://github.com/stepynin-georgy/hw_ci_3/blob/main/pipeline/ScriptedJenkinsfile)
+
 9. Сопроводите процесс настройки скриншотами для каждого пункта задания!!
 
 ## Необязательная часть
