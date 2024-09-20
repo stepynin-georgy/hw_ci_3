@@ -115,7 +115,7 @@ jenkins-master-01          : ok=11   changed=8    unreachable=0    failed=0    s
 
 3. Запустить и проверить работоспособность.
 
-![изображение][https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_34.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_34.png)
 
 4. Сделать первоначальную настройку.
 
