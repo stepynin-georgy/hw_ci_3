@@ -115,13 +115,13 @@ jenkins-master-01          : ok=11   changed=8    unreachable=0    failed=0    s
 
 3. Запустить и проверить работоспособность.
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_34.png]
+![изображение][https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_34.png]
 
 4. Сделать первоначальную настройку.
 
 Добавил агента:
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_35.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_35.png)
 
 ## Основная часть
 
@@ -129,11 +129,11 @@ jenkins-master-01          : ok=11   changed=8    unreachable=0    failed=0    s
 
 Добавил репозиторий с vector-role:
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_36.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_36.png)
 
 Выполняемый код:
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_37.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_37.png)
 
 <details>
 <summary>Запуск freestyle job</summary>
@@ -1195,9 +1195,9 @@ Finished: SUCCESS
 
 </details>
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_38.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_38.png)
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_39.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_39.png)
 
 4. Создать Multibranch Pipeline на запуск `Jenkinsfile` из репозитория.
 
@@ -1240,7 +1240,7 @@ Finished: SUCCESS
 
 Добавил переменную prod_run:
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_40.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_40.png)
 
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
 
@@ -1319,7 +1319,7 @@ Finished: SUCCESS
 
 </details>
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_42.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_42.png)
 
 <details>
 <summary>Запуск Scripted Pipeline с параметром prod_run=True</summary>
@@ -1396,7 +1396,7 @@ Finished: SUCCESS
 
 </details>
 
-!(изображение)[https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_43.png]
+![изображение](https://github.com/stepynin-georgy/hw_ci_3/blob/main/img/Screenshot_43.png)
 
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
